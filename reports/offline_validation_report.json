@@ -1,0 +1,31 @@
+{
+  "conditions": {
+    "C1": {
+      "inputs": 40,
+      "validated_outputs": 40,
+      "input_sha256": "8c6758b816ce1b8b57c26f63f0c7cce01d96c868f875ed5c4184e31044fbf706",
+      "validated_output_contracts": 40
+    },
+    "C2": {
+      "inputs": 40,
+      "validated_outputs": 36,
+      "input_sha256": "77306734205123115bbc878a3b26a76fa8dcba6adbf38715cbb828358533abf4",
+      "validated_output_contracts": 36
+    }
+  },
+  "frozen_prompt_sha256": "148a413d37b7040d4621bb5c00b1a4cd0306928d1597be66b2c3e2534a86d6ba",
+  "packaged_prompt_sha256": "148a413d37b7040d4621bb5c00b1a4cd0306928d1597be66b2c3e2534a86d6ba",
+  "prompt_hashes_match": true,
+  "schema_sha256": "998528ba86ca912b1bbd905f80244afc025fb02f2cf014f95e0f84d648e74d40",
+  "c2_failures": {
+    "n": 4,
+    "case_ids": [
+      "SD-C005",
+      "SD-C023",
+      "SD-C025",
+      "SD-C036"
+    ],
+    "all_mixed_action_rule": true
+  },
+  "warning": "Reference-key accuracy and reviewer agreement cannot be independently recomputed without private reference data."
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "case_id": "SD-C036",
+    "condition": "C2",
+    "error_type": "OutputError",
+    "validation_reason": "MIX requires employee and organisational intervention categories."
+  },
+  {
+    "case_id": "SD-C025",
+    "condition": "C2",
+    "error_type": "OutputError",
+    "validation_reason": "MIX requires employee and organisational intervention categories."
+  },
+  {
+    "case_id": "SD-C005",
+    "condition": "C2",
+    "error_type": "OutputError",
+    "validation_reason": "MIX requires employee and organisational intervention categories."
+  },
+  {
+    "case_id": "SD-C023",
+    "condition": "C2",
+    "error_type": "OutputError",
+    "validation_reason": "MIX requires employee and organisational intervention categories."
+  }
+]
