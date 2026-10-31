@@ -1,0 +1,17 @@
+# Secrets; never commit credential files or reviewer keys
+.env
+.env.*
+!.env.example
+*PRIVATE*
+*CONFIDENTIAL*
+*gold*key*
+*Gold*Key*
+*.pem
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+results/
+*.pyc
+.DS_Store
+~$*

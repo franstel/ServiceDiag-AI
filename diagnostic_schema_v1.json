@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ServiceDiag-AI diagnostic output v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "service_problem", "diagnosis", "recommended_interventions"],
+  "properties": {
+    "case_id": {"type": "string", "pattern": "^SD-C[0-9]{3}$"},
+    "service_problem": {
+      "type": "object", "additionalProperties": false,
+      "required": ["code", "summary", "evidence_turn_ids"],
+      "properties": {
+        "code": {"type": "string", "enum": ["P01", "P02", "P03", "P04", "P05"]},
+        "summary": {"type": "string", "minLength": 1},
+        "evidence_turn_ids": {"type": "array", "items": {"type": "string", "pattern": "^T[0-9]{2,3}$"}, "minItems": 1, "uniqueItems": true}
+      }
+    },
+    "diagnosis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["classification", "rationale", "causal_evidence", "alternative_explanations", "missing_information", "evidence_sufficiency", "uncertainty_level"],
+      "properties": {
+        "classification": {"type": "string", "enum": ["EMP", "ORG", "MIX", "UNE"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "causal_evidence": {
+          "type": "array", "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["source_id", "supported_claim"],
+            "properties": {
+              "source_id": {"type": "string", "pattern": "^[TE][0-9]{2,3}$"},
+              "supported_claim": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "alternative_explanations": {"type": "array", "items": {"type": "string"}},
+        "missing_information": {"type": "array", "items": {"type": "string"}},
+        "evidence_sufficiency": {"type": "string", "enum": ["adequate", "insufficient"]},
+        "uncertainty_level": {"type": "string", "enum": ["low", "moderate", "high"]}
+      }
+    },
+    "recommended_interventions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["action_code", "target", "rationale", "evidence_ids"],
+        "properties": {
+          "action_code": {"type": "string", "enum": ["COACHING", "TRAINING", "POLICY_REVIEW", "PROCESS_CHANGE", "SYSTEM_REPAIR", "RESOURCE_REVIEW", "INVESTIGATE", "SERVICE_RECOVERY", "NO_CORRECTIVE_ACTION"]},
+          "target": {"type": "string", "enum": ["employee", "organisation", "investigation", "customer", "none"]},
+          "rationale": {"type": "string", "minLength": 1},
+          "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^[TE][0-9]{2,3}$"}, "uniqueItems": true}
+        }
+      }
+    }
+  }
+}
